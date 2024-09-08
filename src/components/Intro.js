@@ -1,6 +1,7 @@
 import { Card, Col, Container, Row, Dropdown, Button, Image } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import trailer from "../assets/bgcnth.jpeg";
+import { Link } from "react-router-dom";
 import { FaPlay, FaInfo } from "react-icons/fa";
 import MovieCard from "./MovieCard";
 import IMG1 from "../assets/dune.jpg";
@@ -92,98 +93,73 @@ const Intro = () => {
             </div>
           </Col>
         </Row>
-        <div class="row">
-          <div className="col-xxl-12 col-xl-6 col-12">
-            <div className="movieCard mb-30">
-              <img 
-                src={IMG7}
-                alt="My Hero Academia" 
-                className="br-12"
-              />
-              <div className="content ">
-                <h4 className="h-30 color-white mb-8 hero">My Hero Academia</h4>
-                <ul className="tag-unstyled mb-16">
-                  <li>2019</li>
-                  <li 
-                    className="sec" 
-                    style={{ 
-                      display: 'inline-block', 
-                      padding: '2px 6px', 
-                      border: '1px solid #b0b0b0', 
-                      borderRadius: '5px', 
-                      fontSize: '0.9rem', 
-                      color: '#b0b0b0', 
-                      backgroundColor: 'transparent', 
-                      lineHeight: '1.2' 
-                    }}
-                  >
-                    18+
-                  </li>
-                  <li>4 Seasons</li>
-                  <li>Anime</li>
-                </ul>
-                <p></p>
-                <p className="sm color-medium-gray">
-                  Sentenced to death, ninja Gabimaru the Hollow finds himself apathetic.
-                </p>
-                <a 
-                  href="#" 
-                  data-bs-toggle="modal" 
-                  data-bs-target="#videoModal" 
-                  className="cus-btn primary"
-                >
-                <FaPlay id="play-icon"/> Play
-                </a>
+        
+        {/* genre */}
+        <div className="page-content">
+          <section className="categories p-40">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-xxl-3 col-sm-6 mb-30">
+                    <Link to="/search" className="categorie-item">
+                      <Image src={IMG7} className="categorie-image br-12" />
+                      <div className="content">
+                        <h2 className="h-36 mb-1 color-white">Action</h2>
+                        <span className="h-20 color-medium-gray">850+ Film</span>
+                      </div>
+                    </Link>
+                </div>
+                <div className="col-xxl-3 col-sm-6 mb-30">
+                  <Link to="/search" className="categorie-item">
+                    <Image src={IMG7} className="categorie-image br-12" />
+                    <div className="content">
+                      <h2 className="h-36 mb-1 color-white">Fantasy</h2>
+                      <span className="h-20 color-medium-gray">850+ Film</span>
+                    </div>
+                  </Link>
+                </div>
+                <div className="col-xxl-3 col-sm-6 mb-30">
+                  <Link to="/search" className="categorie-item">
+                    <Image src={IMG7} className="categorie-image br-12" />
+                    <div className="content">
+                        <h2 className="h-36 mb-1 color-white">Sci-fi</h2>
+                        <span className="h-20 color-medium-gray">850+ Film</span>
+                    </div>
+                  </Link>
+                </div>
+                <div className="col-xxl-3 col-sm-6 mb-30">
+                  <Link to="/search" className="categorie-item">
+                    <Image src={IMG7} className="categorie-image br-12" />
+                    <div className="content">
+                      <h2 className="h-36 mb-1 color-white">Romance</h2>
+                      <span className="h-20 color-medium-gray">850+ Film</span>
+                    </div>
+                  </Link>
+                </div>
+                <div className="col-xxl-3 col-sm-6 mb-30">
+                  <Link to="/search" className="categorie-item">
+                    <Image src={IMG7} className="categorie-image br-12" />
+                    <div className="content">
+                      <h2 className="h-36 mb-1 color-white">Comedy</h2>
+                      <span className="h-20 color-medium-gray">850+ Film</span>
+                    </div>
+                  </Link>
+                </div>
+                <div className="col-xxl-3 col-sm-6 mb-30">
+                  <Link to="/search" className="categorie-item">
+                    <Image src={IMG7} className="categorie-image br-12" />
+                    <div className="content">
+                      <h2 className="h-36 mb-1 color-white">Thriller</h2>
+                      <span className="h-20 color-medium-gray">850+ Film</span>
+                    </div>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-xxl-12 col-xl-6 col-12">
-            <div className="movieCard mb-30">
-              <img 
-                src={IMG7}
-                alt="My Hero Academia" 
-                className="br-12"
-              />
-              <div className="content ">
-                <h4 className="h-30 color-white mb-8 hero">My Hero Academia</h4>
-                <ul className="tag-unstyled mb-16">
-                  <li>2019</li>
-                  <li 
-                    className="sec" 
-                    style={{ 
-                      display: 'inline-block', 
-                      padding: '2px 6px', 
-                      border: '1px solid #b0b0b0', 
-                      borderRadius: '5px', 
-                      fontSize: '0.9rem', 
-                      color: '#b0b0b0', 
-                      backgroundColor: 'transparent', 
-                      lineHeight: '1.2' 
-                    }}
-                  >
-                    18+
-                  </li>
-                  <li>4 Seasons</li>
-                  <li>Anime</li>
-                </ul>
-                <p></p>
-                <p className="sm color-medium-gray">
-                  Sentenced to death, ninja Gabimaru the Hollow finds himself apathetic.
-                </p>
-                <a 
-                  href="#" 
-                  data-bs-toggle="modal" 
-                  data-bs-target="#videoModal" 
-                  className="cus-btn primary"
-                >
-                <FaPlay id="play-icon"/> Play
-                </a>
-              </div>
-            </div>
-          </div>
+          </section>
         </div>
+
         <Row className="justify-content-center g-4 m-2">
-          <h2>Recently Views</h2>
+          <h2>TRENDING</h2>
           <Col md={15} className="slide-container">
             <Slider {...settings}>
               {movies.map((movie, index) => (

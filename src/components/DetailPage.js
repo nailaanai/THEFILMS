@@ -1,28 +1,51 @@
 import { Container, Row, Col, Card, Image, Form, Button, ListGroup } from 'react-bootstrap';
-import IMG1 from "../assets/actor1.jpg"
-import IMG2 from "../assets/actor2.jpeg"
-import IMG3 from "../assets/actor3.jpg"
-import IMG4 from "../assets/actor4.jpg"
-import IMG5 from "../assets/actor5.jpg"
+import MOVIE1 from "../assets/infinite.jpg";
+import IMG2 from "../assets/actor2.jpeg";
+import IMG3 from "../assets/actor3.jpg";
+import IMG4 from "../assets/actor4.jpg";
+import IMG5 from "../assets/actor5.jpg";
+import Slider from "react-slick";
+import ActorCard from "./ActorCard";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 const DetailPage = () => {
+    const actors = [
+        { image: IMG2, name: 'Actor 1' },
+        { image: IMG2, name: 'Actor 2' },
+        { image: IMG3, name: 'Actor 3' },
+        { image: IMG4, name: 'Actor 4' },
+        { image: IMG5, name: 'Actor 5' },
+        { image: IMG4, name: 'Actor 6' },
+        { image: IMG3, name: 'Actor 3' },
+        { image: IMG4, name: 'Actor 4' },
+        { image: IMG5, name: 'Actor 5' },
+        { image: IMG4, name: 'Actor 6' },
+        { image: IMG3, name: 'Actor 7' },
+        { image: IMG4, name: 'Actor 8' },
+    ];
+
     return (
         <div className="myDP">
             <Container className="text-white">
                 <Row>
-                    <Col md={12} className='mt-4' id='\page'>
+                    <Col md={12} className='mt-4 mb-5' id='\page'>
                         <h1>My Hero Academia (2024)</h1>
                         <h5 className="text-white">Other titles: Dune, Joker, Toy story</h5>
                     </Col>
                 </Row>
                 {/* trailer */}
                 <Row>
+                    <Col md={3}>
+                        <Card.Img variant="top" src={MOVIE1} style={{ width: '250px', height: '300px' }} />
+                    </Col>
                     <Col md={8}>
-                        <Card className="bg-dark text-white">
-                            <Card.Img variant="top" src={IMG1} style={{ height: '300px' }} />
+                        {/* <Card className="bg-dark text-white"> */}
+                            {/* <Card.Img variant="top" src={MOVIE1} style={{ width: '250px',height: '300px' }} /> */}
                             <Card.Body>
                                 <Card.Text>
-                                    <b className='text-warning'>Synopsis:</b><br />
+                                    <b style={{ fontSize: '32px'}}>Synopsis:</b><br />
                                     Sometimes unhelpful. I don't read it thoroughly. But what helps me is the genres. I need to see genres and actors. That is what I want.
                                 </Card.Text>
                                 <Card.Text>
@@ -31,87 +54,18 @@ const DetailPage = () => {
                                     Availability: Fansub: @otaksub on X
                                 </Card.Text>
                             </Card.Body>
-                        </Card>
+                        {/* </Card> */}
                         
                     </Col>
                     {/* penilaian */}
-                    <Col md={4}>
-                        {/* aktor */}
-                        <Row className="mb-4">
-                            <Col xs={4}>
-                                <Card className="bg-dark text-white text-center m-1" style={{ height: '163px' }}>
-                                    <Card.Img src={IMG1} style={{ height: '100px' }} />
-                                    <Card.Body>
-                                        <Card.Text>Actor 1</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col xs={4}>
-                                <Card className="bg-dark text-white text-center m-1" style={{ height: '163px' }}>
-                                    <Card.Img src={IMG2} style={{ height: '100px' }} />
-                                    <Card.Body>
-                                        <Card.Text>Actor 2</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col xs={4}>
-                                <Card className="bg-dark text-white text-center m-1" style={{ height: '163px' }}>
-                                    <Card.Img src={IMG3} style={{ height: '100px' }} />
-                                    <Card.Body>
-                                        <Card.Text>Actor 3</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col xs={4}>
-                                <Card className="bg-dark text-white text-center m-1" style={{ height: '163px' }}>
-                                    <Card.Img src={IMG4} style={{ height: '100px' }} />
-                                    <Card.Body>
-                                        <Card.Text>Actor 4</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col xs={4}>
-                                <Card className="bg-dark text-white text-center m-1" style={{ height: '163px' }}>
-                                    <Card.Img src={IMG5} style={{ height: '100px' }} />
-                                    <Card.Body>
-                                        <Card.Text>Actor 5</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col xs={4}>
-                                <Card className="bg-dark text-white text-center m-1" style={{ height: '163px' }}>
-                                    <Card.Img src={IMG1} style={{ height: '100px' }} />
-                                    <Card.Body>
-                                        <Card.Text>Actor 6</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col xs={4}>
-                                <Card className="bg-dark text-white text-center m-1" style={{ height: '163px' }}>
-                                    <Card.Img src={IMG2} style={{ height: '100px' }} />
-                                    <Card.Body>
-                                        <Card.Text>Actor 7</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col xs={4}>
-                                <Card className="bg-dark text-white text-center m-1" style={{ height: '163px' }}>
-                                    <Card.Img src={IMG3} style={{ height: '100px' }} />
-                                    <Card.Body>
-                                        <Card.Text>Actor 8</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                            <Col xs={4}>
-                                <Card className="bg-dark text-white text-center m-1" style={{ height: '163px' }}>
-                                    <Card.Img src={IMG4} style={{ height: '100px' }} />
-                                    <Card.Body>
-                                        <Card.Text>Actor 9</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        </Row>
-                    </Col>
+                    
+                </Row>
+                {/* actors */}
+                <Row className="g-1 mt-5">
+                    {/* <h2 className='mt-4 mb-2'>ACTOR</h2> */}
+                    {actors.map((actor, index) => (
+                        <ActorCard key={index} image={actor.image} name={actor.name} />
+                    ))}
                 </Row>
                 {/* komentar reviwer */}
                 <Row className="mt-5">
@@ -184,8 +138,9 @@ const DetailPage = () => {
                                     </Button>
                                 </Form>
                             </Card.Body>
-                        </Card>
+                    </Card>
                 </Row>
+                
             </Container>
         </div>
     );

@@ -7,6 +7,8 @@ import './App.css';
 import "./style/landingpage.css";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import SearchBar from './components/SearchBar';
+import SearchPage from './components/SearchPages';
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Intro/>} />
         <Route path="/detail" element={<DetailPage />} />
+        {/* <Route path="/search" element={<SearchBar />} /> */}
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
     </Router>
   );

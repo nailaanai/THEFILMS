@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Container, Nav, Image } from "react-bootstrap";
 import { Button, Dropdown } from "react-bootstrap";
-import logo from "../assets/logoweb.jpg";
+import logo from "../assets/logofixx.png";
 import { FaSearch } from "react-icons/fa";
+import DropDownProfile from "./DropDownProfile";
+import { Link } from "react-router-dom";
+import Intro from "../components/Intro";  // Pastikan import komponen yang diperlukan
+import SearchBar from "../components/SearchBar"
 
 const NavigationBar = () => {
   const [isSticky, setSticky] = useState(false);
@@ -35,25 +39,15 @@ const NavigationBar = () => {
             <Image src={logo} alt="Logo" width="50" height="50" className="me-4" />
             <span>THEFILMS</span>
           </Navbar.Brand>
-          <div className="input-wrapper ms-4">
+          <SearchBar />
+          {/* <div className="input-wrapper ms-4">
             <FaSearch id="search-icon" />
             <input placeholder="Search Movies..." />
-          </div>
-          <Nav className="ms-auto">
-            <Nav.Link href="#">WATCHLIST</Nav.Link>
-            <div className="introButton text-center">
-              <Button href="#" variant="danger" className="mx-2">
-                SIGN IN
-              </Button>
-            </div>
-            <Dropdown alignRight>
-              <Dropdown.Toggle variant="secondary">EN</Dropdown.Toggle>
-              <Dropdown.Menu className="navbar-dropdown-menu">
-                <Dropdown.Item className="navbar-dropdown-item">EN</Dropdown.Item>
-                <Dropdown.Item className="navbar-dropdown-item">FR</Dropdown.Item>
-                <Dropdown.Item className="navbar-dropdown-item">ES</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+          </div> */}
+          <Nav className="ms-auto d-flex align-items-center">
+            <Nav.Link as={Link} to="/genres" className="m-2">GENRES</Nav.Link>  {/* Gunakan Link */}
+            <Nav.Link as={Link} to="/Intro" className="m-2">TRENDING</Nav.Link>  {/* Gunakan Link */}
+            <DropDownProfile />
           </Nav>
         </Container>
       </Navbar>
