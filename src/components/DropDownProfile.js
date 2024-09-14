@@ -1,25 +1,29 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { FaSearch, FaBell, FaUserCircle } from "react-icons/fa";
 import { Dropdown, Button } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 const DropDownProfile = () => {
   return (
-    <Dropdown align="end">
-      <Dropdown.Toggle
-        as={Button}
-        variant="link"
-        className="p-0"
-        id="dropdown-profile"
-        style={{ color: 'white' }}
-      >
-        <FontAwesomeIcon icon={faUser} size="lg" />
-      </Dropdown.Toggle>
+    <Dropdown>
+            <Dropdown.Toggle
+              variant="link"
+              id="dropdown-profile"
+              className="text-white"
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <FaUserCircle className="icons" />
+            </Dropdown.Toggle>
 
-      <Dropdown.Menu>
-        <Dropdown.Item href="#">SIGN IN</Dropdown.Item>
-        <Dropdown.Item href="#">LOG IN</Dropdown.Item>
-      </Dropdown.Menu>
+            <Dropdown.Menu align="end">
+              <Dropdown.Item as={Link} to="/login" className="text-black">
+                Login
+              </Dropdown.Item>
+              <Dropdown.Item as={Link} to="/signup" className="text-black">
+                Signup
+              </Dropdown.Item>
+            </Dropdown.Menu>
     </Dropdown>
   );
 };

@@ -18,7 +18,7 @@ const Intro = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,  
+    slidesToShow: 4,  // Menyesuaikan jumlah film per baris
     slidesToScroll: 2,
     responsive: [
       {

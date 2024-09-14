@@ -1,73 +1,75 @@
-import { Container, Row, Col, Card, Image, Form, Button, ListGroup } from 'react-bootstrap';
-import MOVIE1 from "../assets/infinite.jpg";
-import IMG2 from "../assets/actor2.jpeg";
-import IMG3 from "../assets/actor3.jpg";
-import IMG4 from "../assets/actor4.jpg";
-import IMG5 from "../assets/actor5.jpg";
-import Slider from "react-slick";
-import ActorCard from "./ActorCard";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
+import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+import cards_data from '../../src/components/CardData'; // Import data movie
 
 const DetailPage = () => {
+    const { id } = useParams(); // Ambil ID dari URL
+    const movie = cards_data.find((card) => card.id === parseInt(id)); // Temukan movie berdasarkan ID
+
+    if (!movie) {
+        return <h2>Movie not found</h2>; // Jika movie tidak ditemukan
+    }
+
     const actors = [
-        { image: IMG2, name: 'Actor 1' },
-        { image: IMG2, name: 'Actor 2' },
-        { image: IMG3, name: 'Actor 3' },
-        { image: IMG4, name: 'Actor 4' },
-        { image: IMG5, name: 'Actor 5' },
-        { image: IMG4, name: 'Actor 6' },
-        { image: IMG3, name: 'Actor 3' },
-        { image: IMG4, name: 'Actor 4' },
-        { image: IMG5, name: 'Actor 5' },
-        { image: IMG4, name: 'Actor 6' },
-        { image: IMG3, name: 'Actor 7' },
-        { image: IMG4, name: 'Actor 8' },
+        { image: movie.actorImage1, name: 'Actor 1' },  // Sesuaikan dengan data actor di cards_data
+        { image: movie.actorImage2, name: 'Actor 2' },
+        { image: movie.actorImage3, name: 'Actor 3' },
+        // Tambahkan lebih banyak data actor jika ada
     ];
 
     return (
         <div className="myDP">
             <Container className="text-white">
-                <Row>
-                    <Col md={12} className='mt-4 mb-5' id='\page'>
-                        <h1>My Hero Academia (2024)</h1>
-                        <h5 className="text-white">Other titles: Dune, Joker, Toy story</h5>
-                    </Col>
-                </Row>
                 {/* trailer */}
                 <Row>
                     <Col md={3}>
-                        <Card.Img variant="top" src={MOVIE1} style={{ width: '250px', height: '300px' }} />
+                        <Card.Img variant="top" src={movie.image} style={{ width: '250px', height: '300px' }} className='mt-5'/>
                     </Col>
                     <Col md={8}>
-                        {/* <Card className="bg-dark text-white"> */}
-                            {/* <Card.Img variant="top" src={MOVIE1} style={{ width: '250px',height: '300px' }} /> */}
-                            <Card.Body>
-                                <Card.Text>
-                                    <b style={{ fontSize: '32px'}}>Synopsis:</b><br />
-                                    Sometimes unhelpful. I don't read it thoroughly. But what helps me is the genres. I need to see genres and actors. That is what I want.
-                                </Card.Text>
-                                <Card.Text>
-                                    Genre: Drama, Thriller, Sci-fi<br />
-                                    Rating: 3.5/5<br />
-                                    Availability: Fansub: @otaksub on X
-                                </Card.Text>
-                            </Card.Body>
-                        {/* </Card> */}
-                        
+                        <Card.Body>
+                            <Card.Text style={{color:'#cccccc'}} className='mt-5'>
+                                <b style={{ fontSize: '35px', color:'white'}}>{movie.name}</b>
+                                <h5 className="text-white">Other titles: {movie.otherTitles}</h5>
+                                <h5 className="text-white">Year: {movie.year}</h5>
+                                
+                                <b style={{ fontSize: '20px', color:'white'}}>Synopsis:</b><br />
+                                {movie.synopsis}
+                            </Card.Text>
+                            <Card.Text style={{ fontSize: '18px', color:'white'}}>
+                                Genre: 
+                                <span style={{ fontSize: '15px',color: '#cccccc' }}>
+                                    {movie.genre}
+                                </span>
+                                <br />
+                                Rating: 
+                                <span style={{ fontSize: '15px',color: '#cccccc' }}>
+                                    {movie.rating}
+                                </span>
+                                <br />
+                                Availability: 
+                                <span style={{ fontSize: '15px',color: '#cccccc' }}>
+                                    {movie.availability}
+                                </span>
+                            </Card.Text>
+                        </Card.Body>
                     </Col>
-                    {/* penilaian */}
-                    
                 </Row>
-                {/* actors */}
+
+                {/* Actors */}
                 <Row className="g-1 mt-5">
-                    {/* <h2 className='mt-4 mb-2'>ACTOR</h2> */}
                     {actors.map((actor, index) => (
-                        <ActorCard key={index} image={actor.image} name={actor.name} />
+                        <Col key={index} md={2}>
+                            <Card className="bg-dark text-white">
+                                <Card.Img variant="top" src={actor.image} />
+                                <Card.Body>
+                                    <Card.Title>{actor.name}</Card.Title>
+                                </Card.Body>
+                            </Card>
+                        </Col>
                     ))}
                 </Row>
-                {/* komentar reviwer */}
+
+                {/* Reviews */}
                 <Row className="mt-5">
                     <Col md={12}>
                         <h3>User Reviews
@@ -75,44 +77,13 @@ const DetailPage = () => {
                         </h3>
                     </Col>
                 </Row>
-                {/* kolom komentarnya */}
-                <Row className="mb-4">
-                    <Col md={6}>
-                        <Card className="bg-dark p-3 mb-3 text-white">
-                        <Card.Body>
-                            <Card.Title>Nara (4/4/2014) said:</Card.Title>
-                            <Card.Text>
-                                It is a wonderful drama! I love it so much!!!
-                            </Card.Text>
-                            <Card.Text>
-                                In the quiet embrace of ink and page, a story unfolded, timeless and sage, through the lines of a filmmaker's artistry, its essence soared, a masterpiece for all to see.
-                            </Card.Text>
-                            <Card.Text>
-                                <strong>Rating:</strong> ⭐ 8.5/10
-                            </Card.Text>
-                        </Card.Body>
 
-                        </Card>
-                    </Col>
-                    <Col md={6}>
-                        <Card className="bg-dark p-3 mb-3 text-white">
+                {/* Add your review */}
+                <Row className="mb-4">
+                    <Col md={12}>
+                        <Card className="bg-dark text-white p-3 mb-4">
                             <Card.Body>
-                            <Card.Title>Nara (4/4/2014) said:</Card.Title>
-                            <Card.Text>
-                                It is a wonderful drama! I love it so much!!!
-                            </Card.Text>
-                            <Card.Text>
-                                In the quiet embrace of ink and page, a story unfolded, timeless and sage, through the lines of a filmmaker's artistry, its essence soared, a masterpiece for all to see.
-                            </Card.Text>
-                            <Card.Text>
-                                <strong>Rating:</strong> ⭐ 8.5/10
-                            </Card.Text>
-                        </Card.Body>
-                        </Card>
-                    </Col>
-                    <Card className="bg-dark text-white p-3 mb-4">
-                            <Card.Body>
-                                <h4>Add yours!</h4>
+                                <h4>Add your review!</h4>
                                 <Form>
                                     <Form.Group className="mb-3" controlId="formBasicName">
                                         <Form.Label>Name</Form.Label>
@@ -138,9 +109,9 @@ const DetailPage = () => {
                                     </Button>
                                 </Form>
                             </Card.Body>
-                    </Card>
+                        </Card>
+                    </Col>
                 </Row>
-                
             </Container>
         </div>
     );

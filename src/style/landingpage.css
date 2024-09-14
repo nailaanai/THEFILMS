@@ -5,31 +5,7 @@
 }
 
 
-.navbar{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #000000;
-}
-.navbar .logo {
-    width: 60px;
-    margin-right: 500px;
-}
 
-.navbar-dropdown-menu {
-    font-size: 14px; /* Atur ukuran font */
-    min-width: 120px; /* Atur lebar minimum dropdown */
-    padding: 10px; /* Atur padding dalam menu */
-}
-
-.navbar-dropdown-item {
-    padding: 8px 10px; /* Atur padding untuk item dropdown */
-}
-
-#search-icon{
-    color: rgb(247, 211, 7);
-}
 
 .input-wrapper{
     background-color: white;
@@ -159,27 +135,46 @@ input:focus{
     width: 100%;
 }
 
-.movieCard{
-    margin: 7px;
-    padding: 20px;
-    border-radius: 20px;
-    background: #212121;
+.movie-container {
     display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .movieCardSearch {
+    flex: 0 0 20%;
+    margin-bottom: 90px;
+  }
+  
+
+
+
+.movieCardSearch img {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.movieCardSearch{
-    margin: 7px;
-    padding: 20px;
-    border-radius: 20px;
-    background: #212121;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    width: 50%;
+.movieCardSearch h5 {
+  color: white;
+  margin-top: 10px;
+  font-size: 18px;
 }
+.movieCardSearch a {
+  text-decoration: none; /* Menghilangkan underline */
+  color: inherit; /* Menggunakan warna teks default */
+}
+
+.movieCardSearch a:focus, 
+.movieCardSearch a:hover, 
+.movieCardSearch a:active {
+  text-decoration: none; /* Pastikan tidak ada underline pada fokus atau hover */
+  outline: none; /* Menghilangkan garis biru pada fokus */
+}
+
+
+
 
 /* .hero {
     margin-bottom: 20px;
@@ -273,6 +268,23 @@ input:focus{
     background-color: #1dbf73;
 }
 
+.cus-btn.filter {
+    display: inline-block;
+    background-color: transparent;
+    display: flex; /* Ubah ke flex untuk display */
+    align-items: center; /* align-items menggunakan kebab-case */
+    justify-content: center; /* justify-content juga menggunakan kebab-case */
+    padding: 10px 20px; /* Tidak perlu tanda kutip di sekitar nilai */
+    border-radius: 10px; /* border-radius menggunakan kebab-case */
+    border: 2px solid #e60f0f;
+    margin-top: 18px;
+    color: white;
+    text-decoration: none; /* text-decoration menggunakan kebab-case */
+    width: 150px; /* Tidak perlu tanda kutip */
+    font-family: 'Monaco, monospace'; /* Jika Anda ingin font monospace */
+}
+
+
 .cus-btn.primary:hover {
     background-color: #17a867;
 }
@@ -348,8 +360,8 @@ input:focus{
 }
 
 .mySearch{
-    height: 120vh;
-    background: #333;
+    height: 300vh;
+    background: black;
     background-size: cover;
 }
 
@@ -481,4 +493,82 @@ input:focus{
 .form-check-input {
     background-color: #ffffff; /* Warna latar checkbox putih */
     border: 1px solid #ffffff; /* Warna border putih */
+}
+
+.slider-area {
+    position: relative;
+    height: 350vh;
+    overflow: hidden;
+}
+  
+.hero-slider {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 50px;
+    position: relative;
+    text-align: left;
+}
+  
+.slider-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
+    z-index: 1;
+}
+  
+.slider-content {
+    z-index: 2;
+    color: white;
+    max-width: 600px;
+    margin-top: 300px;
+}
+  
+.title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+  
+.sub-title {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+  
+.btn {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+}
+  
+.btn-danger {
+    background-color: #e50914;
+    border: none;
+}
+  
+.btn-danger:hover {
+    background-color: #b50710;
+}
+ 
+.slick-prev, .slick-next {
+    /* font-size: 3rem; */
+    color: red;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+  
+.slick-prev {
+    left: 5px;
+}
+  
+.slick-next {
+    right: 5px;
 }
