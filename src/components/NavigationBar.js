@@ -53,6 +53,7 @@ const NavigationBar = () => {
           </Navbar.Brand>
           <ul>
             <li><a href="/">Home</a></li>
+            <li><a href="#popular">Popular</a></li>
             <li><a href="#trending">Trending</a></li>
             <li><a href="#upcoming">Upcoming</a></li>
           </ul>

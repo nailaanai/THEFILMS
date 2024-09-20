@@ -14,9 +14,7 @@ const CardData = [
       synopsis: "Set in the near future, a high-rise apartment building has been newly constructed in the big city. The apartment building has residents from diverse backgrounds, but a new infectious disease breaks out. Because of the outbreak, the high-rise apartment is sealed off. The residents struggle to survive, while stricken with fear and distrust of others.",
       otherTitles: "해피니스",
       year: 2021,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3, 4, 5, 6, 7, 8],
       // Tambah data aktor dan lainnya
     },
     {
@@ -29,9 +27,7 @@ const CardData = [
       synopsis: "At the age of 8, Park Joo-Hyeong went to Italy after he was adopted. He is now an adult and has the name of Vincenzo Cassano (Song Joong-Ki). He is a lawyer, who works for the Mafia as a consigliere. Because of a war between mafia groups, he flees to South Korea. In South Korea, he gets involved with Lawyer Hong Cha-Young (Jeon Yeo-Bin). She is the type of attorney who will do anything to win a case. Vincenzo Cassano falls in love with her. He also achieves social justice by his own way.",
       otherTitles: "빈센조",
       year: 2021,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3],
       // Tambah data aktor dan lainnya
     },
     {
@@ -44,9 +40,7 @@ const CardData = [
       synopsis: "Kim Bok-Joo (Lee Sung-Kyung) is a promising collegiate female weightlifter. Her father runs a small chicken restaurant and her uncle wants to become an actor. She has a bright personality and strong sense of justice. Kim Bok-Joo and her friends on the female weightlifting team are not popular with the guys and they don't have boyfriends. The weightlifting team and the rhythmic gymnastic team also don't get along at all.",
       otherTitles: "역도요정 김복주",
       year: 2016,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3],
       // Tambah data aktor dan lainnya
     },
     {
@@ -59,9 +53,7 @@ const CardData = [
       synopsis: "The series depicts the crisis and rekindling of love between Hong Hae-in, a third-generation chaebol heiress of Queens Group, and Baek Hyun-woo, the son of farmers from Yongdu-ri, and their three years of marriage.",
       otherTitles: "눈물의 여왕",
       year: 2024,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3],
       // Tambah data aktor dan lainnya
     },
     {
@@ -74,9 +66,7 @@ const CardData = [
       synopsis: "Set in the near future, a high-rise apartment building has been newly constructed in the big city. The apartment building has residents from diverse backgrounds, but a new infectious disease breaks out. Because of the outbreak, the high-rise apartment is sealed off. The residents struggle to survive, while stricken with fear and distrust of others.",
       otherTitles: "해피니스",
       year: 2021,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3],
       // Tambah data aktor dan lainnya
     },
     {
@@ -89,9 +79,7 @@ const CardData = [
       synopsis: "At the age of 8, Park Joo-Hyeong went to Italy after he was adopted. He is now an adult and has the name of Vincenzo Cassano (Song Joong-Ki). He is a lawyer, who works for the Mafia as a consigliere. Because of a war between mafia groups, he flees to South Korea. In South Korea, he gets involved with Lawyer Hong Cha-Young (Jeon Yeo-Bin). She is the type of attorney who will do anything to win a case. Vincenzo Cassano falls in love with her. He also achieves social justice by his own way.",
       otherTitles: "빈센조",
       year: 2021,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3],
       // Tambah data aktor dan lainnya
     },
     {
@@ -104,9 +92,7 @@ const CardData = [
       synopsis: "Kim Bok-Joo (Lee Sung-Kyung) is a promising collegiate female weightlifter. Her father runs a small chicken restaurant and her uncle wants to become an actor. She has a bright personality and strong sense of justice. Kim Bok-Joo and her friends on the female weightlifting team are not popular with the guys and they don't have boyfriends. The weightlifting team and the rhythmic gymnastic team also don't get along at all.",
       otherTitles: "역도요정 김복주",
       year: 2016,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3],
       // Tambah data aktor dan lainnya
     },
     {
@@ -119,9 +105,7 @@ const CardData = [
       synopsis: "The series depicts the crisis and rekindling of love between Hong Hae-in, a third-generation chaebol heiress of Queens Group, and Baek Hyun-woo, the son of farmers from Yongdu-ri, and their three years of marriage.",
       otherTitles: "눈물의 여왕",
       year: 2024,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3],
       // Tambah data aktor dan lainnya
     },
     {
@@ -134,9 +118,7 @@ const CardData = [
       synopsis: "Set in the near future, a high-rise apartment building has been newly constructed in the big city. The apartment building has residents from diverse backgrounds, but a new infectious disease breaks out. Because of the outbreak, the high-rise apartment is sealed off. The residents struggle to survive, while stricken with fear and distrust of others.",
       otherTitles: "해피니스",
       year: 2021,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3],
       // Tambah data aktor dan lainnya
     },
     {
@@ -149,9 +131,7 @@ const CardData = [
       synopsis: "At the age of 8, Park Joo-Hyeong went to Italy after he was adopted. He is now an adult and has the name of Vincenzo Cassano (Song Joong-Ki). He is a lawyer, who works for the Mafia as a consigliere. Because of a war between mafia groups, he flees to South Korea. In South Korea, he gets involved with Lawyer Hong Cha-Young (Jeon Yeo-Bin). She is the type of attorney who will do anything to win a case. Vincenzo Cassano falls in love with her. He also achieves social justice by his own way.",
       otherTitles: "빈센조",
       year: 2021,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3],
       // Tambah data aktor dan lainnya
     },
     {
@@ -164,9 +144,7 @@ const CardData = [
       synopsis: "Kim Bok-Joo (Lee Sung-Kyung) is a promising collegiate female weightlifter. Her father runs a small chicken restaurant and her uncle wants to become an actor. She has a bright personality and strong sense of justice. Kim Bok-Joo and her friends on the female weightlifting team are not popular with the guys and they don't have boyfriends. The weightlifting team and the rhythmic gymnastic team also don't get along at all.",
       otherTitles: "역도요정 김복주",
       year: 2016,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3],
       // Tambah data aktor dan lainnya
     },
     {
@@ -179,9 +157,7 @@ const CardData = [
       synopsis: "The series depicts the crisis and rekindling of love between Hong Hae-in, a third-generation chaebol heiress of Queens Group, and Baek Hyun-woo, the son of farmers from Yongdu-ri, and their three years of marriage.",
       otherTitles: "눈물의 여왕",
       year: 2024,
-      actorImage1: "path-to-actor1.jpg",  // Gambar actor
-      actorImage2: "path-to-actor2.jpg",
-      actorImage3: "path-to-actor3.jpg",
+      actors: [1, 2, 3],
       // Tambah data aktor dan lainnya
     },
     {
@@ -194,9 +170,7 @@ const CardData = [
         synopsis: "Set in the near future, a high-rise apartment building has been newly constructed in the big city. The apartment building has residents from diverse backgrounds, but a new infectious disease breaks out. Because of the outbreak, the high-rise apartment is sealed off. The residents struggle to survive, while stricken with fear and distrust of others.",
         otherTitles: "해피니스",
         year: 2021,
-        actorImage1: "path-to-actor1.jpg",  // Gambar actor
-        actorImage2: "path-to-actor2.jpg",
-        actorImage3: "path-to-actor3.jpg",
+        actors: [1, 2, 3],
         // Tambah data aktor dan lainnya
       },
       {
@@ -209,9 +183,7 @@ const CardData = [
         synopsis: "At the age of 8, Park Joo-Hyeong went to Italy after he was adopted. He is now an adult and has the name of Vincenzo Cassano (Song Joong-Ki). He is a lawyer, who works for the Mafia as a consigliere. Because of a war between mafia groups, he flees to South Korea. In South Korea, he gets involved with Lawyer Hong Cha-Young (Jeon Yeo-Bin). She is the type of attorney who will do anything to win a case. Vincenzo Cassano falls in love with her. He also achieves social justice by his own way.",
         otherTitles: "빈센조",
         year: 2021,
-        actorImage1: "path-to-actor1.jpg",  // Gambar actor
-        actorImage2: "path-to-actor2.jpg",
-        actorImage3: "path-to-actor3.jpg",
+        actors: [1, 2, 3],
         // Tambah data aktor dan lainnya
       },
       {
@@ -224,9 +196,7 @@ const CardData = [
         synopsis: "Kim Bok-Joo (Lee Sung-Kyung) is a promising collegiate female weightlifter. Her father runs a small chicken restaurant and her uncle wants to become an actor. She has a bright personality and strong sense of justice. Kim Bok-Joo and her friends on the female weightlifting team are not popular with the guys and they don't have boyfriends. The weightlifting team and the rhythmic gymnastic team also don't get along at all.",
         otherTitles: "역도요정 김복주",
         year: 2016,
-        actorImage1: "path-to-actor1.jpg",  // Gambar actor
-        actorImage2: "path-to-actor2.jpg",
-        actorImage3: "path-to-actor3.jpg",
+        actors: [1, 2, 3],
         // Tambah data aktor dan lainnya
       },
       {
@@ -239,9 +209,7 @@ const CardData = [
         synopsis: "At the age of 8, Park Joo-Hyeong went to Italy after he was adopted. He is now an adult and has the name of Vincenzo Cassano (Song Joong-Ki). He is a lawyer, who works for the Mafia as a consigliere. Because of a war between mafia groups, he flees to South Korea. In South Korea, he gets involved with Lawyer Hong Cha-Young (Jeon Yeo-Bin). She is the type of attorney who will do anything to win a case. Vincenzo Cassano falls in love with her. He also achieves social justice by his own way.",
         otherTitles: "빈센조",
         year: 2021,
-        actorImage1: "path-to-actor1.jpg",  // Gambar actor
-        actorImage2: "path-to-actor2.jpg",
-        actorImage3: "path-to-actor3.jpg",
+        actors: [1, 2, 3],
         // Tambah data aktor dan lainnya
       },
     

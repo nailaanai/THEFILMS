@@ -354,9 +354,10 @@ input:focus{
 }
 
 .myDP{
-    height: 280vh;
-    background: #333;
+    height: 300vh;
+    background: black;
     background-size: cover;
+    padding-top: 100px;
 }
 
 .mySearch{
@@ -572,3 +573,4 @@ input:focus{
 .slick-next {
     right: 5px;
 }
+
