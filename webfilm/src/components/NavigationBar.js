@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Container, Nav, Image, Form } from "react-bootstrap";
-import { FaSearch, FaBell, FaUserCircle } from "react-icons/fa";
+import { FaSearch, FaBell } from "react-icons/fa"; // Import necessary icons
 import logo from "../assets/logofixx.png";
 import { useNavigate } from "react-router-dom";
 import DropDownProfile from "./DropDownProfile";
@@ -11,16 +11,14 @@ const NavigationBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
-  // Toggle search bar visibility
   const toggleSearchBar = () => {
     setShowSearch(!showSearch);
   };
 
-  // Handle form submission
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery) {
-      navigate(`/search?query=${searchQuery}`); // Navigate to SearchPages
+      navigate(`/search?query=${searchQuery}`);
     }
   };
 
@@ -53,17 +51,15 @@ const NavigationBar = () => {
           </Navbar.Brand>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="#popular">Popular</a></li>
-            <li><a href="#trending">Top Rating</a></li>
-            <li><a href="#upcoming">Upcoming</a></li>
+            <li><a href="/all-movies?category=popular">Popular</a></li>
+            <li><a href="/all-movies?category=top_rated">Top Rating</a></li>
+            <li><a href="/all-movies?category=upcoming">Upcoming</a></li>
           </ul>
         </Nav>
 
         <Nav className="navbar-right">
-          {/* Search Icon */}
           <FaSearch className="icons" onClick={toggleSearchBar} style={{ cursor: 'pointer' }} />
 
-          {/* Conditional Search Bar */}
           {showSearch && (
             <Form onSubmit={handleSearchSubmit} className="search-bar">
               <Form.Control
@@ -75,7 +71,6 @@ const NavigationBar = () => {
             </Form>
           )}
 
-          {/* Notification and Profile Icons */}
           <FaBell className="icons" />
           <DropDownProfile />
         </Nav>

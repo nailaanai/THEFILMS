@@ -54,13 +54,6 @@ const MovieCard = ({ title, movies = [] }) => {
           <p>Loading movies...</p>  
         )}
       </div>
-      {/* Tombol See More */}
-      <div className="see-more">
-        {/* Menggunakan title untuk kategori */}
-        <Link to={`/all-movies/${title.replace(" ", "_").toLowerCase()}`} className="see-more-link">
-          See More
-        </Link>
-      </div>
     </div>
   );
 };

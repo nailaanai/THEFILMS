@@ -21,8 +21,7 @@ function App() {
         <Route path="/" element={<HomePage/>} />{/* <Route path="/" element={<Intro/>} /> */}
         <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="/search" element={<SearchPages />} />
-        <Route path="/movies/:category" element={<AllMovies />} />
-        <Route path="/movies" element={<AllMovies />} />
+        <Route path="/all-movies" element={<AllMovies />} />
       </Routes>
     </Router>
   );

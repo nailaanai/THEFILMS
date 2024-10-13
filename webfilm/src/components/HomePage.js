@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import "../style/Home.css";
 import { Container, Button, Modal } from "react-bootstrap";
 import Slider from "react-slick";
@@ -21,7 +21,9 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const handlePlay = (url) => {
-    setVideoUrl(url);
+    // Mengubah URL YouTube menjadi format embed
+    const embedUrl = url.replace("watch?v=", "embed/");
+    setVideoUrl(embedUrl);
     setShow(true);
   };
 
@@ -103,13 +105,12 @@ const HomePage = () => {
       try {
         const res = await fetch('http://localhost:5000/api/movies/top_movie');
         const data = await res.json();
-        console.log("Top Movies Data:", data); // Pastikan ini menampilkan data
-        setTopMovies(data); // Pastikan data diatur ke state
+        console.log("Top Movies Data:", data); // Pastikan ini menampilkan data yang benar
+        setTopMovies(data); // Atur state dengan data yang diambil
       } catch (err) {
         console.error("Failed to fetch top movies:", err);
       }
-    };
-  
+    };    
     fetchTopMovies();
   }, []);
   
@@ -120,18 +121,31 @@ const HomePage = () => {
       <Container fluid className="p-0">
         <Slider {...settings}>
           {topMovies && topMovies.length > 0 ? (
-            topMovies.map(movie => (
-              <div key={movie.id} className="single-slider" style={{ backgroundImage: `url(${movie.poster})` }}>
+            topMovies.map((movie) => (
+              <div key={movie.id} className="single-slider">
+                <img
+                  src={movie.poster}
+                  alt={movie.title}
+                />
                 <div className="slider-overlay"></div>
                 <div className="slider-content">
-                  <h1 className="title">{movie.title}</h1>
-                  <div className="sub-title">{movie.synopsis}</div>
-                  <Button variant="success" onClick={() => handlePlay(movie.trailer)}>
-                    <FaPlay /> Play
-                  </Button>
-                  <Button variant="secondary">
-                    <FaInfo /> More Info
-                  </Button>
+                  <h1 className="title" style={{fontSize: '7rem'}}>{movie.title}</h1>
+                  <div className="sub-title">
+                  {movie.year || "Year not available"}
+                  {" || "}
+                  {Array.isArray(movie.genres) && movie.genres.length > 0
+                    ? movie.genres.join(", ")
+                    : "Genres not available"}
+                  {" || "}
+                  {Array.isArray(movie.countries) && movie.countries.length > 0
+                    ? movie.countries.join(", ")
+                    : "Countries not available"}
+                  {" || "}
+                  {movie.rating || "Rating not available"}
+                    </div>
+                    <Button variant="success" style={{ width: '150px', height: '50px', fontSize: '1.25rem' }} onClick={() => handlePlay(movie.trailer)}>
+                        <FaPlay /> Play
+                    </Button>
                 </div>
               </div>
             ))
@@ -143,26 +157,41 @@ const HomePage = () => {
         {/* Modal untuk menampilkan video trailer */}
         <Modal show={show} onHide={handleClose} size="lg" centered>
           <Modal.Body className="bg-dark p-0">
-            <iframe
-              width="100%"
-              height="400px"
-              src={videoUrl}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+              <iframe
+                  width="100%"
+                  height="400px"
+                  src={videoUrl}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+              ></iframe>
           </Modal.Body>
           <Modal.Footer className="bg-dark">
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
+              <Button variant="secondary" onClick={handleClose}>
+                  Close
+              </Button>
           </Modal.Footer>
-        </Modal>
+      </Modal>
 
         <MovieCard title={"Popular"} movies={popularMovies} />
+        <div className="see-more">
+          <Link to="/all-movies?category=popular" className="see-more-link">
+            See More
+          </Link>
+        </div>
         <MovieCard title={"Top Rated"} movies={topratedMovies} />
+        <div className="see-more">
+          <Link to="/all-movies?category=top_rated" className="see-more-link">
+            See More
+          </Link>
+        </div>
         <MovieCard title={"Upcoming"} movies={upcomingMovies} />
+        <div className="see-more">
+          <Link to="/all-movies?category=upcoming" className="see-more-link">
+            See More
+          </Link>
+        </div>
         <Footer/>
       </Container>
     </div>

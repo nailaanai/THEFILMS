@@ -1,52 +1,79 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { useLocation,Link } from 'react-router-dom';
+import Footer from "./Footer/Footer"; 
 
-const AllMovies = () => {
-  const { category } = useParams();  // Mendapatkan parameter kategori dari URL
-  const navigate = useNavigate();
+const AllMovie = () => {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const category = queryParams.get('category'); // Mendapatkan kategori dari URL
 
   useEffect(() => {
-    if (!category) {
-      console.error("Category is undefined, redirecting...");
-      navigate('/');
-      return;
-    }
+    const fetchMovies = async () => {
+      let endpoint = '';
+      switch (category) {
+        case 'popular':
+          endpoint = 'http://localhost:5000/api/movies/popular';
+          break;
+        case 'top_rated':
+          endpoint = 'http://localhost:5000/api/movies/top_rated';
+          break;
+        case 'upcoming':
+          endpoint = 'http://localhost:5000/api/movies/upcoming';
+          break;
+        default:
+          endpoint = 'http://localhost:5000/api/movies/popular';
+          break;
+      }
 
-    const fetchMoviesByCategory = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/movies/${category}`);
-        if (response.ok) {
-          const data = await response.json();
-          setMovies(data);
-        } else {
-          throw new Error('Failed to fetch movies: ' + response.statusText);
-        }
-      } catch (error) {
-        console.error('Failed to fetch movies:', error);
+        const res = await fetch(endpoint);
+        const data = await res.json();
+        setMovies(data);
+      } catch (err) {
+        console.error("Failed to fetch movies:", err);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchMoviesByCategory();
-  }, [category, navigate]);
+    fetchMovies();
+  }, [category]); // Tambahkan category ke dalam dependensi effect
 
   return (
-    <div>
-      <h1>{category.replace('_', ' ').toUpperCase()} Movies</h1>
-      <div>
-        {movies.length > 0 ? (
-          movies.map((movie) => (
-            <div key={movie.id}>
-              <h2>{movie.title}</h2>
-              <p>{movie.description}</p>
-            </div>
-          ))
+    <div className="mySearch bg-black">
+      <Container className="p-5 mt-5">
+        <h1 className="mb-3" style={{ fontWeight: 'bold', color: 'white', textDecoration: 'underline' }}>
+          {category ? category.toUpperCase() : "MOVIES"}
+        </h1>
+        {loading ? (
+          <p>Loading movies...</p>
+        ) : movies.length > 0 ? (
+          <Row>
+            {movies.map(movie => (
+              <Col key={movie.id} md={3} className="mb-3">
+                <Link to={`/detail/${movie.id}`} style={{ textDecoration: 'none' }}>
+                  <div className="card" style={{ cursor: 'pointer', backgroundColor: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(255, 255, 255, 0.3)' }}> 
+                    <img src={movie.poster} alt={movie.title} style={{ width: "100%", borderRadius: "10px" }} />
+                    <div className="card-body">
+                      <h5 className="card-title">{movie.title}</h5>
+                      <p className="card-text">{movie.year || "Year not available"}</p>
+                      <p className="card-text">{Array.isArray(movie.genres) && movie.genres.length > 0 ? movie.genres.join(", ") : "Genres not available"}</p>
+                    </div>
+                  </div>
+                </Link>
+              </Col>
+            ))}
+          </Row>
         ) : (
-          <p>No movies found for this category.</p>
+          <p>No movies found.</p>
         )}
-      </div>
+        <Footer />
+      </Container>
     </div>
   );
 };
 
-export default AllMovies;
+export default AllMovie;

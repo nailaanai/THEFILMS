@@ -75,39 +75,122 @@ exports.getMovieById = (req, res) => {
 
 // fetch popular movie
 exports.getPopularMovies = (req, res) => {
-  const sql = 'SELECT * FROM movies WHERE category = "popular"';
+  const sql = `
+    SELECT m.*, 
+           GROUP_CONCAT(DISTINCT g.name) AS genres, 
+           GROUP_CONCAT(DISTINCT c.name) AS countries, 
+           GROUP_CONCAT(DISTINCT a.name) AS actors 
+    FROM movies m
+    LEFT JOIN movie_genres mg ON m.id = mg.movie_id
+    LEFT JOIN genres g ON mg.genre_id = g.id
+    LEFT JOIN movie_countries mc ON m.id = mc.movie_id
+    LEFT JOIN countries c ON mc.country_id = c.id
+    LEFT JOIN movie_actors ma ON m.id = ma.movie_id
+    LEFT JOIN actors a ON ma.actor_id = a.id
+    WHERE m.category = "popular"
+    GROUP BY m.id
+  `;
+  
   connection.query(sql, (err, results) => {
-      if (err) return res.status(500).json({ error: err.message });
-      res.status(200).json(results);
+    if (err) return res.status(500).json({ error: err.message });
+    const movies = results.map(movie => ({
+      ...movie,
+      genres: movie.genres ? movie.genres.split(',') : [], // Mengubah string genres menjadi array
+      countries: movie.countries ? movie.countries.split(',') : [], // Mengubah string countries menjadi array
+      actors: movie.actors ? movie.actors.split(',') : [] // Mengubah string actors menjadi array
+    }));
+    res.status(200).json(movies);
   });
 };
 
 // fetch top rated movie
 exports.getTopRatedMovies = (req, res) => {
-  const sql = 'SELECT * FROM movies WHERE category = "top_rated"';
+  const sql = `
+    SELECT m.*, 
+           GROUP_CONCAT(DISTINCT g.name) AS genres, 
+           GROUP_CONCAT(DISTINCT c.name) AS countries, 
+           GROUP_CONCAT(DISTINCT a.name) AS actors 
+    FROM movies m
+    LEFT JOIN movie_genres mg ON m.id = mg.movie_id
+    LEFT JOIN genres g ON mg.genre_id = g.id
+    LEFT JOIN movie_countries mc ON m.id = mc.movie_id
+    LEFT JOIN countries c ON mc.country_id = c.id
+    LEFT JOIN movie_actors ma ON m.id = ma.movie_id
+    LEFT JOIN actors a ON ma.actor_id = a.id
+    WHERE m.category = "top_rated"
+    GROUP BY m.id
+  `;
+  
   connection.query(sql, (err, results) => {
-      if (err) return res.status(500).json({ error: err.message });
-      res.status(200).json(results);
+    if (err) return res.status(500).json({ error: err.message });
+    const movies = results.map(movie => ({
+      ...movie,
+      genres: movie.genres ? movie.genres.split(',') : [], // Mengubah string genres menjadi array
+      countries: movie.countries ? movie.countries.split(',') : [], // Mengubah string countries menjadi array
+      actors: movie.actors ? movie.actors.split(',') : [] // Mengubah string actors menjadi array
+    }));
+    res.status(200).json(movies);
   });
 };
 
 // fetch up coming movie
 exports.getUpcomingMovies = (req, res) => {
-  const sql = 'SELECT * FROM movies WHERE category = "upcoming"';
+  const sql = `
+    SELECT m.*, 
+           GROUP_CONCAT(DISTINCT g.name) AS genres, 
+           GROUP_CONCAT(DISTINCT c.name) AS countries, 
+           GROUP_CONCAT(DISTINCT a.name) AS actors 
+    FROM movies m
+    LEFT JOIN movie_genres mg ON m.id = mg.movie_id
+    LEFT JOIN genres g ON mg.genre_id = g.id
+    LEFT JOIN movie_countries mc ON m.id = mc.movie_id
+    LEFT JOIN countries c ON mc.country_id = c.id
+    LEFT JOIN movie_actors ma ON m.id = ma.movie_id
+    LEFT JOIN actors a ON ma.actor_id = a.id
+    WHERE m.category = "upcoming"
+    GROUP BY m.id
+  `;
+  
   connection.query(sql, (err, results) => {
-      if (err) return res.status(500).json({ error: err.message });
-      res.status(200).json(results);
+    if (err) return res.status(500).json({ error: err.message });
+    const movies = results.map(movie => ({
+      ...movie,
+      genres: movie.genres ? movie.genres.split(',') : [], // Mengubah string genres menjadi array
+      countries: movie.countries ? movie.countries.split(',') : [], // Mengubah string countries menjadi array
+      actors: movie.actors ? movie.actors.split(',') : [] // Mengubah string actors menjadi array
+    }));
+    res.status(200).json(movies);
   });
 };
-
+// fetch top movie
 exports.getTopMovies = (req, res) => {
-  const sql = 'SELECT * FROM movies WHERE category = "top_movie"';
+  const sql = `
+    SELECT m.*, 
+            GROUP_CONCAT(DISTINCT g.name) AS genres, 
+            GROUP_CONCAT(DISTINCT c.name) AS countries, 
+            GROUP_CONCAT(DISTINCT a.name) AS actors 
+    FROM movies m
+    LEFT JOIN movie_genres mg ON m.id = mg.movie_id
+    LEFT JOIN genres g ON mg.genre_id = g.id
+    LEFT JOIN movie_countries mc ON m.id = mc.movie_id
+    LEFT JOIN countries c ON mc.country_id = c.id
+    LEFT JOIN movie_actors ma ON m.id = ma.movie_id
+    LEFT JOIN actors a ON ma.actor_id = a.id
+    WHERE m.category = "popular" 
+    GROUP BY m.id
+    ORDER BY rating DESC 
+    LIMIT 10;
+  `;
+  
   connection.query(sql, (err, results) => {
-    if (err) {
-      console.error('Error fetching top movies:', err);
-      return res.status(500).json({ error: 'Internal Server Error', message: err.message });
-    }
-    res.status(200).json(results);
+    if (err) return res.status(500).json({ error: err.message });
+    const movies = results.map(movie => ({
+      ...movie,
+      genres: movie.genres ? movie.genres.split(',') : [], // Mengubah string genres menjadi array
+      countries: movie.countries ? movie.countries.split(',') : [], // Mengubah string countries menjadi array
+      actors: movie.actors ? movie.actors.split(',') : [] // Mengubah string actors menjadi array
+    }));
+    res.status(200).json(movies);
   });
 };
 
